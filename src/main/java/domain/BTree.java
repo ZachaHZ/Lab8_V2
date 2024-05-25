@@ -1,5 +1,8 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BTree implements Tree {
     private BTreeNode root; //unica entrada al arbol
 
@@ -266,5 +269,48 @@ public class BTree implements Tree {
         result+="InOrder: "+inOrder(root)+"\n";
         result+="PostOrder: "+postOrder(root)+"\n";
         return result;
+    }
+
+    //i got this from internet, im sorry but i couldn't find any other way to do it
+    public List<BTreeNode> preOrderV() {
+        List<BTreeNode> result = new ArrayList<>();
+        preOrder(root, result);
+        return result;
+    }
+
+    private void preOrder(BTreeNode node, List<BTreeNode> result) {
+        if (node != null) {
+            result.add(node);
+            preOrder(node.left, result);
+            preOrder(node.right, result);
+        }
+    }
+
+    public List<BTreeNode> inOrderV() {
+        List<BTreeNode> result = new ArrayList<>();
+        inOrder(root, result);
+        return result;
+    }
+
+    private void inOrder(BTreeNode node, List<BTreeNode> result) {
+        if (node != null) {
+            inOrder(node.left, result);
+            result.add(node);
+            inOrder(node.right, result);
+        }
+    }
+
+    public List<BTreeNode> postOrderV() {
+        List<BTreeNode> result = new ArrayList<>();
+        postOrder(root, result);
+        return result;
+    }
+
+    private void postOrder(BTreeNode node, List<BTreeNode> result) {
+        if (node != null) {
+            postOrder(node.left, result);
+            postOrder(node.right, result);
+            result.add(node);
+        }
     }
 }

@@ -92,11 +92,6 @@ class BTreeTest {
 
         bTree.remove(queue);
 
-
-
-        System.out.println();
-
-
         System.out.println(bTree);
 
 
