@@ -3,6 +3,7 @@ package controller;
 import domain.BTree;
 import domain.BTreeNode;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
@@ -11,38 +12,39 @@ import javafx.scene.text.Text;
 
 import java.util.List;
 
-
 public class transversalTourController {
-    @javafx.fxml.FXML
+
+    @FXML
     private BorderPane bp;
-    BTree tree = new BTree();
-    @javafx.fxml.FXML
+
+    @FXML
     private Pane treePane;
 
-    @javafx.fxml.FXML
+    private BTree tree = new BTree();
+
+    @FXML
     public void postOrderOnAction(ActionEvent actionEvent) {
         List<BTreeNode> postOrderList = tree.postOrderV();
         displayTraversal(postOrderList);
-
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void inOrderOnAction(ActionEvent actionEvent) {
         List<BTreeNode> inOrderList = tree.inOrderV();
         displayTraversal(inOrderList);
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void randomizeOnAction(ActionEvent actionEvent) {
         tree.clear();
         int n = util.Utility.getRandom(99);
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             tree.add(util.Utility.getRandom(99));
         }
         updateTree();
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void preOrderOnAction(ActionEvent actionEvent) {
         List<BTreeNode> preOrderList = tree.preOrderV();
         displayTraversal(preOrderList);
@@ -71,10 +73,12 @@ public class transversalTourController {
             drawTree(node.right, nextX, nextY, xOffset / 2);
         }
     }
+
     private void updateTree() {
         treePane.getChildren().clear();
         drawTree(tree.getRoot(), 400, 30, 200);
     }
+
     private void displayTraversal(List<BTreeNode> traversalList) {
         treePane.getChildren().clear();
         double x = 30;

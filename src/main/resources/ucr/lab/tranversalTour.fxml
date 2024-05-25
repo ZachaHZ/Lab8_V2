@@ -12,6 +12,15 @@
     <center>
         <AnchorPane prefHeight="400.0" prefWidth="600.0">
             <children>
+                <Pane fx:id="treePane" layoutY="73.0" prefHeight="430.0" prefWidth="600.0" style="-fx-background-color: #AEEAE0;">
+                    <!-- Aquí se mostrará el árbol binario -->
+                </Pane>
+            </children>
+        </AnchorPane>
+    </center>
+    <top>
+        <AnchorPane prefHeight="73.0" prefWidth="600.0">
+            <children>
                 <Pane prefHeight="73.0" prefWidth="600.0" style="-fx-background-color: #13A990;">
                     <children>
                         <Text layoutX="112.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Graphic Binary Tree - Transversal Tour">
@@ -21,7 +30,13 @@
                         </Text>
                     </children>
                 </Pane>
-                <Pane layoutY="73.0" prefHeight="430.0" prefWidth="600.0" style="-fx-background-color: #AEEAE0;">
+            </children>
+        </AnchorPane>
+    </top>
+    <bottom>
+        <AnchorPane prefHeight="73.0" prefWidth="600.0">
+            <children>
+                <Pane prefHeight="73.0" prefWidth="600.0" style="-fx-background-color: #13A990;">
                     <children>
                         <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#randomizeOnAction" prefHeight="38.0" prefWidth="134.0" text="Randomize">
                             <font>
@@ -47,5 +62,5 @@
                 </Pane>
             </children>
         </AnchorPane>
-    </center>
+    </bottom>
 </BorderPane>
